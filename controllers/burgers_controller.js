@@ -34,7 +34,7 @@ router.post("/api/burgers", function (request, response) {
     console.log(" in router post");
     var newB = request.body.burgername.trim();
 
-    console.log(newB);
+    console.log('burger_controller post, insert new burgername:  ', newB);
 
     burger.insertOne("burger_name", newB, function (result) {
         console.log(result);
@@ -45,8 +45,14 @@ router.post("/api/burgers", function (request, response) {
 //router.put("/api/burgers/:burger", function (request, response) {
 router.post("/api/burgers/:burger", function (request, response) {
     var condition = " id = " + request.params.burger;
-    var colValue = " devoured = 1 "
-    console.log("condition", condition);
+    var colValue = " devoured = 1 ";
+
+
+    var x = " router post for update one\n Values being passed into orm\n ";
+    x += "first -sending in string 'burgers' , second colValue: " + colValue;
+    x += " , third is condition: " + condition + " fourth is the callback\n";
+    console.log(x);
+
 
     //put update logic
     //burger.updateOne("burgers", { "devoured": 1 }, condition, function(result){

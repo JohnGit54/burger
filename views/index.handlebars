@@ -15,26 +15,33 @@
         </div>
     </div>
 
-    {{!-- all items from data base --}}
-    
-    <ul>
-  {{#each burgers}}
-    {{#unless devoured}}
-      {{> burger/burger-block devoured=false}}
-    {{/unless}}
-  {{/each}}
-</ul>
 
-    
-     {{!-- end of database itesm - add text button --}} 
-     
+    {{!-- set up row 6 wide for not devoured ( left side ) and 6 wide (rigth side for devoured) all items from data base --}}
+    <div class="row">
+        <div class="col-md-6">
+            <ul>
+                {{#each burgers}} {{#unless devoured}} {{> burger/burger-block devoured=false}} {{/unless}} {{/each}}</ul>
+
+        </div>
+        <div class="col-md-6">
+            <ul>
+                {{#each burgers}} {{#if devoured}} {{> burger/burger-block devoured=false}} {{/if}} {{/each}}</ul>
+
+        </div>
+    </div>
+
+
+
+
+    {{!-- end of database itesm - add text button --}}
+
     <div class="container">
         <div class="row">
             <form action="/api/burgers" method="post">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="form-group">
                         <label for="comment">Enter a Burger you want to eat and click Submit Button:</label>
-                        <textarea class="form-control" rows="3" name="burgername"></textarea>                        
+                        <textarea class="form-control" rows="3" name="burgername"></textarea>
                     </div>
                 </div>
                 <div class="col-sm-offset-5 col-sm-2 text-center">

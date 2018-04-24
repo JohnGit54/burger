@@ -84,16 +84,20 @@ var orm = {
     },
 
     // An example of objColVals would be {name: panther, sleepy: true}
-    updateOne: function (table , xxobjColVals , condition, callback) {
+    updateOne: function (table, objColVals, condition, callback) {
+
+        var x = "table: " + table + " ,objColVals: " + objColVals + " ,condition: " + condition;
+        console.log(x);
+         console.log("  objToSql(objColVals) :  " +  objToSql(objColVals));
         var queryString = "UPDATE " + table;
 
         queryString += " SET ";
         //queryString += objToSql(objColVals); <was taking tables parm?!?!?!
-        queryString +=  xxobjColVals ;
+        queryString += objColVals;
         queryString += " WHERE ";
         queryString += condition;
 
-        console.log("udate query:::" , queryString);
+        console.log("udate query:::", queryString);
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;
