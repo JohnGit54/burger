@@ -93,7 +93,6 @@ var orm = {
 
         queryString += " SET ";
         queryString += objToSql(objColVals); 
-       // queryString += objColVals;
         queryString += " WHERE ";
         queryString += condition;
 
@@ -107,7 +106,7 @@ var orm = {
         });
     },
 
-    //not useing, good to keep
+    //not using, good to keep
     updateTwo: function (sql, callback) {
         console.log(" udateTwo: ", sql);
         connection.query(sql, function (err, result) {
