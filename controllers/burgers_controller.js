@@ -45,20 +45,20 @@ router.post("/api/burgers", function (request, response) {
 //router.put("/api/burgers/:burger", function (request, response) {
 router.post("/api/burgers/:burger", function (request, response) {
     var condition = " id = " + request.params.burger;
-    var colValue = " devoured = 1 ";
 
-
-    var x = " router post for update one\n Values being passed into orm\n ";
-    x += "first -sending in string 'burgers' , second colValue: " + colValue;
-    x += " , third is condition: " + condition + " fourth is the callback\n";
-    console.log(x);
+    // var colValue = " devoured = 1 ";
+    // var x = " router post for update one\n Values being passed into orm\n ";
+    // x += "first -sending in string 'burgers' , second colValue: " + colValue;
+    // x += " , third is condition: " + condition + " fourth is the callback\n";
+    // console.log(x);
 
 
     //put update logic
-    //burger.updateOne("burgers", { "devoured": 1 }, condition, function(result){
-    burger.updateOne("burgers", colValue, condition, function (result) {
+    burger.updateOne("burgers", { "devoured": 1 }, condition, function(result){
+    //burger.updateOne("burgers", colValue, condition, function (result) {
         response.redirect('/');
     })
+     
 })
 
 //expor routes for server.js to use
