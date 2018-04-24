@@ -67,8 +67,9 @@ var orm = {
 
     insertOne: function (table, cols, vals, callback) {
         var sql = "Insert into " + table;
-        sql += " ( " + cols.toString + " ) ";
-        sql += " Values ( " + printQuestionMarks(vals.length) + " ); ";
+        sql += " ( " + cols.toString() + " ) ";
+        sql += " Values ( ?  ); ";
+        //sql += " Values ( " + printQuestionMarks(vals.length) + " ); ";
 
         console.log(sql);
 
@@ -83,15 +84,16 @@ var orm = {
     },
 
     // An example of objColVals would be {name: panther, sleepy: true}
-    updateOne: function (table, objColVals, condition, callback) {
+    updateOne: function (table , xxobjColVals , condition, callback) {
         var queryString = "UPDATE " + table;
 
         queryString += " SET ";
-        queryString += objToSql(objColVals);
+        //queryString += objToSql(objColVals); <was taking tables parm?!?!?!
+        queryString +=  xxobjColVals ;
         queryString += " WHERE ";
         queryString += condition;
 
-        console.log(queryString);
+        console.log("udate query:::" , queryString);
         connection.query(queryString, function (err, result) {
             if (err) {
                 throw err;

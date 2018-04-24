@@ -1,0 +1,17 @@
+ {{!-- this display uneaten burgers - left side --}}
+
+<div class="panel panel-default devouredfalse">
+    <div class="panel-body">
+        <!--Panel Content -->
+        <div class="row">
+            <div class="col-md-10">
+                {{this.id}} - {{burger_name}}
+            </div>
+            <div class="col-md-2">
+                <form action="/api/burgers/{{this.id}}"  method="POST">
+                    <button type="submit" data-id="{{this.id}}">DEVOUR!</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,45 @@
+ {{!-- place burger.png centered then put Eat-da-burger under it--}}
+<div class="container">
+    <div class="row">
+        {{!--
+        <div class="col-md-4 col-md-offset-4 "> --}}
+            <div class="col-md-12 text-center">
+                <img src="./assets/img/burger.png">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3 text-center ">
+                <h1> Eat The Burger!</h1>
+                <br>
+            </div>
+        </div>
+    </div>
+
+    {{!-- all items from data base --}}
+    
+    <ul>
+  {{#each burgers}}
+    {{#unless devoured}}
+      {{> burger/burger-block devoured=false}}
+    {{/unless}}
+  {{/each}}
+</ul>
+
+    
+     {{!-- end of database itesm - add text button --}} 
+     
+    <div class="container">
+        <div class="row">
+            <form action="/api/burgers" method="post">
+                <div class="col-md-6 col-md-offset-3">
+                    <div class="form-group">
+                        <label for="comment">Enter a Burger you want to eat and click Submit Button:</label>
+                        <textarea class="form-control" rows="3" name="burgername"></textarea>                        
+                    </div>
+                </div>
+                <div class="col-sm-offset-5 col-sm-2 text-center">
+                    <button type="submit" class="btn btn-default  text-center">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>

@@ -1,0 +1,17 @@
+body{
+    background-color: chocolate;
+}
+
+.devouredfalse{
+    background-color: rgb(231, 208, 77);
+    margin:15px;
+    margin-left: 8%;
+    width: 30%;
+    height: 50px;  
+    font-size: 15px;
+    
+}
+
+.devouredfalse .devour{
+    float:right; 
+}
